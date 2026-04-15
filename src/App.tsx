@@ -1,9 +1,9 @@
-import VanLife from "./components/VanLife";
+import Header from "./components/Header";
 
 function App() {
   return (
     <>
-      <VanLife />
+      <Header />
     </>
   );
 }

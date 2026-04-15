@@ -1,4 +1,4 @@
-export default function VanLife() {
+export default function Header() {
   return (
     <div>
       <header className="flex justify-around mt-10">
@@ -10,4 +10,4 @@ export default function VanLife() {
       </header>
     </div>
   );
-}
+}   
