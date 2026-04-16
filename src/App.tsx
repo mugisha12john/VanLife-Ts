@@ -1,11 +1,19 @@
 import Header from "./components/Header";
 import Vans from "./components/Vans";
 import "../server"; // make sure this runs before <App />
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Home from "./components/Home";
 function App() {
   return (
     <>
-      <Header />
-      <Vans/>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/vans" element={<Vans />}></Route>
+          <Route path="/about"></Route>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
