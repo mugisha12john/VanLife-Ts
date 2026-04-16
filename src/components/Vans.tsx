@@ -1,6 +1,7 @@
 import React from "react";
+import type { Van } from "../server";
 export default function Vans() {
-  const [vans, setVans] = React.useState([]);
+  const [vans, setVans] = React.useState<Van[]>([]);
 
   React.useEffect(() => {
     fetch("/api/vans")
