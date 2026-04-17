@@ -9,8 +9,8 @@ export default function Vans() {
       .then((data) => setVans(data.vans));
   }, []);
   const vanElements = vans.map((van) => (
-    <div key={van.id} className="van-tile">
-      <img src={van.imageUrl} />
+    <div key={van.id} className="van-tile ">
+      <img src={van.imageUrl} className="max-w-2/3 rounded-xl" />
       <div className="van-info">
         <h3>{van.name}</h3>
         <p>
@@ -22,9 +22,9 @@ export default function Vans() {
     </div>
   ));
   return (
-    <div className="van-list-container">
+    <div className="van-list-container  p-20">
       <h1>Explore our van options</h1>
-      <div className="van-list">{vanElements}</div>
+      <div className="van-list grid grid-cols-2  gap-30 justify-items-center  mt-20">{vanElements}</div>
     </div>
   );
 }
