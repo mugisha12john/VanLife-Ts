@@ -1,5 +1,6 @@
 import React from "react";
 import type { Van } from "../server";
+import { Link } from "react-router-dom";
 export default function Vans() {
   const [vans, setVans] = React.useState<Van[]>([]);
 
@@ -10,24 +11,36 @@ export default function Vans() {
   }, []);
   const vanElements = vans.map((van) => (
     <div key={van.id} className="van-tile ">
-      <img src={van.imageUrl} className="max-w-2/3 rounded-xl" />
-      <div className="flex font-semibold text-xl justify-between w-96 mt-2">
-        <h3>{van.name}</h3>
-        <p>
-          ${van.price}
-          <span>/day</span>
-        </p>
-      </div>
-
-      <button
-        className={
-          van.type === "simple"
-            ? "bg-[#E17654] p-2 w-25 rounded-xl font-medium text-white mt-5"
-            : van.type ==='rugged' ? "bg-[#115E59] p-2 w-25 rounded-xl font-medium text-white mt-5": "bg-black p-2 w-25 rounded-xl font-medium text-white mt-5" 
-        }
+      <Link
+        to={`/vans/${van.id}`}
+        aria-label={`View details for ${van.name}, 
+                             priced at $${van.price} per day`}
       >
-        {van.type}
-      </button>
+        <img
+          src={van.imageUrl}
+          className="max-w-2/3 rounded-xl"
+          alt={`Image of ${van.name}`}
+        />
+        <div className="flex font-semibold text-xl justify-between w-96 mt-2">
+          <p>{van.name}</p>
+          <p>
+            ${van.price}
+            <span>/day</span>
+          </p>
+        </div>
+
+        <button
+          className={
+            van.type === "simple"
+              ? "bg-[#E17654] p-2 w-25 rounded-xl font-medium text-white mt-5"
+              : van.type === "rugged"
+                ? "bg-[#115E59] p-2 w-25 rounded-xl font-medium text-white mt-5"
+                : "bg-black p-2 w-25 rounded-xl font-medium text-white mt-5"
+          }
+        >
+          {van.type}
+        </button>
+      </Link>
     </div>
   ));
   return (
