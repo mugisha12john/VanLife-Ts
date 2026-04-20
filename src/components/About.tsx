@@ -25,7 +25,7 @@ export default function About() {
           Explore our vans
         </button>
       </div>
-      <div className="mt-5 bg-[#252525] w-125 flex justify-center p-2">
+      <div className="mt-5 bg-[#252525] w-125 flex justify-center p-2 mb-5">
         <p className="text-[#AAAAAA]">Ⓒ 2022 #VANLIFE</p>
       </div>
     </div>
