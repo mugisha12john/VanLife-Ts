@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import bg from "../assets/home.png";
 
@@ -12,7 +11,7 @@ export default function Home() {
         <h1 className="max-w-125 text-white font-bold text-4xl">
           You got the travel plans, we got the travel vans.
         </h1>
-        <p className="font-medium text-xl text-white mt-10 w-140">
+        <p className="font-light text-xl text-white mt-10 w-140">
           Add adventure to your life by joining the #vanlife movement. Rent the
           perfect van to make your perfect road trip.
         </p>
