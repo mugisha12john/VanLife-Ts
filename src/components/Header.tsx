@@ -11,6 +11,12 @@ export default function Header() {
           #VANLIFE
         </Link>
         <div className="flex gap-10">
+                  <Link
+            to="/host"
+            className="hover:underline cursor-pointer hover:text-black font-semibold text-gray-700"
+          >
+            Host
+          </Link>
           <Link
             to="/about"
             className="hover:underline cursor-pointer hover:text-black font-semibold text-gray-700"
