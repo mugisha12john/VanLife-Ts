@@ -1,15 +1,15 @@
-// import Header from "./components/Header";
-// import Vans from "./components/Vans";
-// import "../server"; // make sure this runs before <App />
-// import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Header from "./components/Header";
+import Vans from "./components/Vans";
+import "../server"; // make sure this runs before <App />
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
-import Task1 from "./components/Task1";
+// import Task1 from "./components/Task1";
 
-// import Home from "./components/Home";
+import Home from "./components/Home";
 function App() {
   return (
     <>
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={<Home />}></Route>
@@ -17,9 +17,9 @@ function App() {
           <Route path="/about"></Route>
 
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
 
-      <Task1/>
+      {/* <Task1/> */}
     </>
   );
 }
