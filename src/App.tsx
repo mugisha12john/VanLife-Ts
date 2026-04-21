@@ -9,6 +9,8 @@ import Home from "./components/Home";
 import About from "./components/About";
 import VanDetail from "./components/VanDetail";
 import Dashboard from "./components/host/Dashboard";
+import Income from "./components/host/Income";
+import Review from "./components/host/Review";
 function App() {
   return (
     <>
@@ -17,10 +19,11 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/vans" element={<Vans />}></Route>
-          <Route path="/about" element={<About/>}></Route>
-          <Route path="/vans/:id" element={<VanDetail/>}></Route>
-          <Route path="/host" element={<Dashboard/>}>
-
+          <Route path="/about" element={<About />}></Route>
+          <Route path="/vans/:id" element={<VanDetail />}></Route>
+          <Route path="/host" element={<Dashboard />}>
+            <Route path="income" element={<Income />}></Route>
+            <Route path="review" element={<Review />}></Route>
           </Route>
         </Routes>
       </BrowserRouter>

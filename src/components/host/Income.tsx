@@ -1,8 +1,3 @@
-
 export default function Income() {
-  return (
-    <div>
-      
-    </div>
-  )
+  return <div>Income goes here</div>;
 }
