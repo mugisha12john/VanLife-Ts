@@ -35,7 +35,7 @@ export default function HostLayout() {
           Review
         </NavLink>
       </div>
-      <h1>Nested routes</h1>
+      <h1 className="text-2xl">Nested routes here using outlet</h1>
       <Outlet />
     </div>
   );
