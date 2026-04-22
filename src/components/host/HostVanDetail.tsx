@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Van } from "../../../server";
-import { Link, useParams } from "react-router-dom";
+import { Link, Outlet, useParams } from "react-router-dom";
 export default function HostVanDetail() {
   const [van, setVan] = useState<Van[]>([]);
   const [loading, setLoading] = useState(true);
@@ -48,6 +48,12 @@ export default function HostVanDetail() {
           })}
         </div>
       )}
+      <div>
+        <Link to=".">Detail</Link>
+        <Link to="pricing">Pricing</Link>
+        <Link to="photo">Photo</Link>
+      </div>
+      <Outlet/>
     </div>
   );
 }
