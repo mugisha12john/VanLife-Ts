@@ -22,7 +22,7 @@ export default function HostLayout() {
         >
           Income
         </NavLink>
-                <NavLink
+        <NavLink
           to="van"
           style={({ isActive }) => (isActive ? activeStyles : undefined)}
         >
@@ -35,7 +35,7 @@ export default function HostLayout() {
           Review
         </NavLink>
       </div>
-      <h1 className="text-2xl">Nested routes here using outlet</h1>
+
       <Outlet />
     </div>
   );

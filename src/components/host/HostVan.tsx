@@ -19,7 +19,7 @@ export default function HostVan() {
         <div>
           {van.map((item) => {
             return (
-              <Link to={`${item.id}`} className="flex gap-10 mt-3">
+              <Link key={item.id} to={`${item.id}`} className="flex gap-10 mt-3">
                 <img
                   src={item.imageUrl}
                   alt={item.name}
