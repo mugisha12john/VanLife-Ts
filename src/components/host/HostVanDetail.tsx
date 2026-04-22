@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import type { Van } from "../../../server";
-import { Link, Outlet, useParams } from "react-router-dom";
+import { Link, Outlet, useParams, NavLink } from "react-router-dom";
 export default function HostVanDetail() {
   const [van, setVan] = useState<Van[]>([]);
   const [loading, setLoading] = useState(true);
@@ -11,6 +11,11 @@ export default function HostVanDetail() {
       .then((data) => setVan(data.vans));
     setLoading(false);
   }, [id]);
+  const activeStyles = {
+    fontWeight: "bold",
+    textDecoration: "underline",
+    color: "#161616",
+  };
   return (
     <div className="flex flex-col items-center">
       <Link to=".." relative="path" className="font-medium  underline">
@@ -48,12 +53,29 @@ export default function HostVanDetail() {
           })}
         </div>
       )}
-      <div>
-        <Link to=".">Detail</Link>
-        <Link to="pricing">Pricing</Link>
-        <Link to="photo">Photo</Link>
+      <div className="flex gap-5 mt-5">
+        <NavLink
+          to="."
+          relative="path"
+          end
+          style={({ isActive }) => (isActive ? activeStyles : undefined)}
+        >
+          Detail
+        </NavLink>
+        <NavLink
+          to="pricing"
+          style={({ isActive }) => (isActive ? activeStyles : undefined)}
+        >
+          Pricing
+        </NavLink>
+        <NavLink
+          to="photo"
+          style={({ isActive }) => (isActive ? activeStyles : undefined)}
+        >
+          Photo
+        </NavLink>
       </div>
-      <Outlet/>
+      <Outlet context={van} />
     </div>
   );
 }
