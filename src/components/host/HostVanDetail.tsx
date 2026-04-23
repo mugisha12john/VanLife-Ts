@@ -6,10 +6,13 @@ export default function HostVanDetail() {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   useEffect(() => {
-    fetch(`/api/host/vans/${id}`)
-      .then((res) => res.json())
-      .then((data) => setVan(data.vans));
-    setLoading(false);
+    async function fetchApi() {
+      fetch(`/api/host/vans/${id}`)
+        .then((res) => res.json())
+        .then((data) => setVan(data.vans));
+      setLoading(false);
+    }
+    fetchApi();
   }, [id]);
   const activeStyles = {
     fontWeight: "bold",
