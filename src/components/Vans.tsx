@@ -3,16 +3,18 @@ import type { Van } from "../server";
 import { Link, useSearchParams } from "react-router-dom";
 export default function Vans() {
   const [vans, setVans] = React.useState<Van[]>([]);
-    const [search,setSearch] = useSearchParams()
-    const filter = search.get('type')
-    console.log(filter)
+  const [search, setSearch] = useSearchParams();
+  const filter = search.get("type");
   React.useEffect(() => {
     fetch("/api/vans")
       .then((res) => res.json())
       .then((data) => setVans(data.vans));
   }, []);
-  const vanElements = vans.map((van) => (
-    <div key={van.id} >
+  const filtedVans = filter
+    ? vans.filter((item) => item.type === filter)
+    : vans;
+  const vanElements = filtedVans.map((van) => (
+    <div key={van.id}>
       <Link
         to={`/vans/${van.id}`}
         aria-label={`View details for ${van.name}, 
@@ -49,10 +51,18 @@ export default function Vans() {
     <div className="van-list-container  p-20">
       <h1 className="font-bold text-3xl">Explore our van options</h1>
       <div className="flex gap-5 mt-10">
-        <button  className="bg-[#FFEAD0] text-[#4D4D4D] text-sm p-2 rounded-xl font-medium w-20 hover:cursor-pointer">Simple</button>
-        <button  className="bg-[#FFEAD0] text-[#4D4D4D] text-sm p-2 rounded-xl font-medium w-20 hover:cursor-pointer">Luxury</button>
-        <button  className="bg-[#FFEAD0] text-[#4D4D4D] text-sm p-2 rounded-xl font-medium w-20 hover:cursor-pointer">Regged</button>
-        <button className="underline text-sm text-[#4D4D4D] font-medium hover:cursor-pointer">Clear filters</button>
+        <Link to="?type=simple" className="bg-[#FFEAD0] text-[#4D4D4D] text-sm p-2 rounded-xl font-medium w-20 hover:cursor-pointer">
+          Simple
+        </Link>
+        <Link to="?type=luxury" className="bg-[#FFEAD0] text-[#4D4D4D] text-sm p-2 rounded-xl font-medium w-20 hover:cursor-pointer">
+          Luxury
+        </Link>
+        <Link to="?type=regged" className="bg-[#FFEAD0] text-[#4D4D4D] text-sm p-2 rounded-xl font-medium w-20 hover:cursor-pointer">
+          Regged
+        </Link>
+        <Link to="." className="underline text-sm text-[#4D4D4D] font-medium hover:cursor-pointer">
+          Clear filters
+        </Link>
       </div>
       <div className="van-list grid grid-cols-2  gap-20 justify-items-center  mt-20">
         {vanElements}
