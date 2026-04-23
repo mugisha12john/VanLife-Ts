@@ -12,7 +12,7 @@ export default function Vans() {
       .then((data) => setVans(data.vans));
   }, []);
   const vanElements = vans.map((van) => (
-    <div key={van.id} className="van-tile ">
+    <div key={van.id} >
       <Link
         to={`/vans/${van.id}`}
         aria-label={`View details for ${van.name}, 
@@ -23,7 +23,7 @@ export default function Vans() {
           className="max-w-2/3 rounded-xl"
           alt={`Image of ${van.name}`}
         />
-        <div className="flex font-semibold text-xl justify-between w-96 mt-2">
+        <div className="flex font-semibold text-xl justify-between max-w-60 mt-2">
           <p>{van.name}</p>
           <p>
             ${van.price}
@@ -48,13 +48,13 @@ export default function Vans() {
   return (
     <div className="van-list-container  p-20">
       <h1 className="font-bold text-3xl">Explore our van options</h1>
-      <div>
-        <button>Simple</button>
-        <button>Luxury</button>
-        <button>Regged</button>
-        <button>Clear filters</button>
+      <div className="flex gap-5 mt-10">
+        <button  className="bg-[#FFEAD0] text-[#4D4D4D] text-sm p-2 rounded-xl font-medium w-20 hover:cursor-pointer">Simple</button>
+        <button  className="bg-[#FFEAD0] text-[#4D4D4D] text-sm p-2 rounded-xl font-medium w-20 hover:cursor-pointer">Luxury</button>
+        <button  className="bg-[#FFEAD0] text-[#4D4D4D] text-sm p-2 rounded-xl font-medium w-20 hover:cursor-pointer">Regged</button>
+        <button className="underline text-sm text-[#4D4D4D] font-medium hover:cursor-pointer">Clear filters</button>
       </div>
-      <div className="van-list grid grid-cols-2  gap-30 justify-items-center  mt-20">
+      <div className="van-list grid grid-cols-2  gap-20 justify-items-center  mt-20">
         {vanElements}
       </div>
     </div>
