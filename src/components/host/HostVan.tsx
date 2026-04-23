@@ -6,10 +6,13 @@ export default function HostVan() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/api/host/vans")
-      .then((res) => res.json())
-      .then((data) => setVan(data.vans));
-    setLoading(false);
+    async function fetchAPI() {
+      fetch("/api/host/vans")
+        .then((res) => res.json())
+        .then((data) => setVan(data.vans));
+      setLoading(false);
+    }
+    fetchAPI();
   }, []);
   return (
     <div className="flex flex-col items-center">
@@ -20,7 +23,11 @@ export default function HostVan() {
         <div>
           {van.map((item) => {
             return (
-              <Link key={item.id} to={`${item.id}`} className="flex gap-10 mt-3">
+              <Link
+                key={item.id}
+                to={`${item.id}`}
+                className="flex gap-10 mt-3"
+              >
                 <img
                   src={item.imageUrl}
                   alt={item.name}
