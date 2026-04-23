@@ -1,5 +1,5 @@
 import React from "react";
-import type { Van } from "../server";
+import type { Van } from "../../server";
 import { Link, useSearchParams } from "react-router-dom";
 export default function Vans() {
   const [vans, setVans] = React.useState<Van[]>([]);
