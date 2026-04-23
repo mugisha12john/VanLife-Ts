@@ -1,9 +1,11 @@
 import React from "react";
 import type { Van } from "../server";
-import { Link } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 export default function Vans() {
   const [vans, setVans] = React.useState<Van[]>([]);
-
+    const [search,setSearch] = useSearchParams()
+    const filter = search.get('type')
+    console.log(filter)
   React.useEffect(() => {
     fetch("/api/vans")
       .then((res) => res.json())
@@ -45,7 +47,13 @@ export default function Vans() {
   ));
   return (
     <div className="van-list-container  p-20">
-      <h1>Explore our van options</h1>
+      <h1 className="font-bold text-3xl">Explore our van options</h1>
+      <div>
+        <button>Simple</button>
+        <button>Luxury</button>
+        <button>Regged</button>
+        <button>Clear filters</button>
+      </div>
       <div className="van-list grid grid-cols-2  gap-30 justify-items-center  mt-20">
         {vanElements}
       </div>

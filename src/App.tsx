@@ -1,32 +1,26 @@
-// import Header from "./components/Header";
-// import Vans from "./components/Vans";
-// import "../server"; // make sure this runs before <App />
-// import { BrowserRouter, Route, Routes } from "react-router-dom";
-
+import Header from "./components/Header";
+import Vans from "./components/Vans";
+import "../server"; // make sure this runs before <App />
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-// import UserProfile from "./components/UserProfile";
-import Home from "./components/Task4/Home";
-import PostDetail from "./components/Task4/PostDetail";
-import NotFound from "./components/Task4/NotFound";
 
-// // import Task1 from "./components/Task1";
+// import Task1 from "./components/Task1";
 
-// import Home from "./components/Home";
-// import About from "./components/About";
-// import VanDetail from "./components/VanDetail";
-// import Dashboard from "./components/host/Dashboard";
-// import Income from "./components/host/Income";
-// import Review from "./components/host/Review";
-// import HostLayout from "./components/host/HostLayout";
-// import HostVan from "./components/host/HostVan";
-// import HostVanDetail from "./components/host/HostVanDetail";
-// import HostVanInfo from "./components/host/HostVanInfo";
-// import HostVanPhoto from "./components/host/HostVanPhoto";
-// import HostVanPricing from "./components/host/HostVanPricing";
+import Home from "./components/Home";
+import About from "./components/About";
+import VanDetail from "./components/VanDetail";
+import Dashboard from "./components/host/Dashboard";
+import Income from "./components/host/Income";
+import Review from "./components/host/Review";
+import HostLayout from "./components/host/HostLayout";
+import HostVan from "./components/host/HostVan";
+import HostVanDetail from "./components/host/HostVanDetail";
+import HostVanInfo from "./components/host/HostVanInfo";
+import HostVanPhoto from "./components/host/HostVanPhoto";
+import HostVanPricing from "./components/host/HostVanPricing";
 function App() {
   return (
     <>
-      {/* <BrowserRouter>
+      <BrowserRouter>
         <Header />
         <Routes>
           <Route path="/" element={<Home />}></Route>
@@ -44,15 +38,6 @@ function App() {
               <Route path="pricing" element={<HostVanPricing />}></Route>
             </Route>
           </Route>
-        </Routes>
-      </BrowserRouter> */}
-
-      {/* <Task1/> */}
-      <BrowserRouter>
-        <Routes>
-          <Route path="*" element={<NotFound />}></Route>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/post/:id" element={<PostDetail />}></Route>
         </Routes>
       </BrowserRouter>
     </>
