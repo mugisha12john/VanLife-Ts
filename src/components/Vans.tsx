@@ -47,22 +47,44 @@ export default function Vans() {
       </Link>
     </div>
   ));
+  function handleFilterChange(key:string, value:string|null) {
+    setSearch((prevParams) => {
+      if (value === null) {
+        prevParams.delete(key);
+      } else {
+        prevParams.set(key, value);
+      }
+      return prevParams;
+    });
+  }
   return (
     <div className="van-list-container  p-20">
       <h1 className="font-bold text-3xl">Explore our van options</h1>
       <div className="flex gap-5 mt-10">
-        <Link to="?type=simple" className="bg-[#FFEAD0] text-[#4D4D4D] text-sm p-2 rounded-xl font-medium w-20 hover:cursor-pointer">
+        <button
+          onClick={() => handleFilterChange("type", "simple")}
+          className="bg-[#FFEAD0] text-[#4D4D4D] text-sm p-2 rounded-xl font-medium w-20 hover:cursor-pointer"
+        >
           Simple
-        </Link>
-        <Link to="?type=luxury" className="bg-[#FFEAD0] text-[#4D4D4D] text-sm p-2 rounded-xl font-medium w-20 hover:cursor-pointer">
+        </button>
+        <button
+          onClick={() => handleFilterChange("type", "luxury")}
+          className="bg-[#FFEAD0] text-[#4D4D4D] text-sm p-2 rounded-xl font-medium w-20 hover:cursor-pointer"
+        >
           Luxury
-        </Link>
-        <Link to="?type=regged" className="bg-[#FFEAD0] text-[#4D4D4D] text-sm p-2 rounded-xl font-medium w-20 hover:cursor-pointer">
-          Regged
-        </Link>
-        <Link to="." className="underline text-sm text-[#4D4D4D] font-medium hover:cursor-pointer">
+        </button>
+        <button
+          onClick={() => handleFilterChange("type", "rugged")}
+          className="bg-[#FFEAD0] text-[#4D4D4D] text-sm p-2 rounded-xl font-medium w-20 hover:cursor-pointer"
+        >
+          Rugged
+        </button>
+        <button
+          onClick={() => handleFilterChange("type",null)}
+          className="underline text-sm text-[#4D4D4D] font-medium hover:cursor-pointer"
+        >
           Clear filters
-        </Link>
+        </button>
       </div>
       <div className="van-list grid grid-cols-2  gap-20 justify-items-center  mt-20">
         {vanElements}
