@@ -1,24 +1,18 @@
-import React from "react";
-import type { Van } from "../../server";
+
+import type { VansData } from "../../server";
 import { Link, useLoaderData, useSearchParams } from "react-router-dom";
+import { getAllVans } from "./api/handleApi";
 export function loaderAllVans() {
-  return "all vans";
+  return getAllVans();
 }
 export default function Vans() {
-  const [vans, setVans] = React.useState<Van[]>([]);
+
   const [search, setSearch] = useSearchParams();
   const filter = search.get("type");
-  const data = useLoaderData();
-  console.log(data);
-
-  React.useEffect(() => {
-    fetch("/api/vans")
-      .then((res) => res.json())
-      .then((data) => setVans(data.vans));
-  }, []);
+  const data:VansData  = useLoaderData();
   const filtedVans = filter
-    ? vans.filter((item) => item.type === filter)
-    : vans;
+    ? data.vans.filter((item) => item.type === filter)
+    : data.vans;
   const vanElements = filtedVans.map((van) => (
     <div key={van.id}>
       <Link
