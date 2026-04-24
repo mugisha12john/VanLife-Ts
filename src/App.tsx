@@ -20,12 +20,13 @@ import HostVanInfo from "./components/host/HostVanInfo";
 import HostVanPhoto from "./components/host/HostVanPhoto";
 import HostVanPricing from "./components/host/HostVanPricing";
 import Layout from "./components/Layout";
+import Error from "./components/Error";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="vans" element={<Vans />} loader={loaderAllVans}/>
+        <Route path="vans" element={<Vans />} loader={loaderAllVans} errorElement={<Error/>}/>
         <Route path="about" element={<About />} />
         <Route path="vans/:id" element={<VanDetail />} />
 
