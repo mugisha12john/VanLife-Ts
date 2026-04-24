@@ -1,4 +1,4 @@
-import Vans, { loaderAllVans } from "./components/Vans";
+import Vans from "./components/Vans";
 import "../server"; // make sure this runs before <App />
 import {
   createBrowserRouter,
@@ -20,13 +20,13 @@ import HostVanPhoto from "./components/host/HostVanPhoto";
 import HostVanPricing from "./components/host/HostVanPricing";
 import Layout from "./components/Layout";
 import Error from "./components/Error";
-import { vanDetailLoader } from "./components/api/handleApi";
+import { vanDetailLoader, getAllVans } from "./components/api/handleApi";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/" element={<Layout />} errorElement={<Error />}>
         <Route index element={<Home />} />
-        <Route path="vans" element={<Vans />} loader={loaderAllVans} />
+        <Route path="vans" element={<Vans />} loader={getAllVans} />
         <Route path="about" element={<About />} />
         <Route
           path="vans/:id"

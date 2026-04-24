@@ -1,10 +1,7 @@
 
 import type { VansData } from "../../server";
 import { Link, useLoaderData, useSearchParams } from "react-router-dom";
-import { getAllVans } from "./api/handleApi";
-export function loaderAllVans() {
-  return getAllVans();
-}
+
 export default function Vans() {
 
   const [search, setSearch] = useSearchParams();
