@@ -1,10 +1,16 @@
 import React from "react";
 import type { Van } from "../../server";
-import { Link, useSearchParams } from "react-router-dom";
+import { Link, useLoaderData, useSearchParams } from "react-router-dom";
+export function loaderAllVans() {
+  return "all vans";
+}
 export default function Vans() {
   const [vans, setVans] = React.useState<Van[]>([]);
   const [search, setSearch] = useSearchParams();
   const filter = search.get("type");
+  const data = useLoaderData();
+  console.log(data);
+
   React.useEffect(() => {
     fetch("/api/vans")
       .then((res) => res.json())
@@ -47,7 +53,7 @@ export default function Vans() {
       </Link>
     </div>
   ));
-  function handleFilterChange(key:string, value:string|null) {
+  function handleFilterChange(key: string, value: string | null) {
     setSearch((prevParams) => {
       if (value === null) {
         prevParams.delete(key);
@@ -80,7 +86,7 @@ export default function Vans() {
           Rugged
         </button>
         <button
-          onClick={() => handleFilterChange("type",null)}
+          onClick={() => handleFilterChange("type", null)}
           className="underline text-sm text-[#4D4D4D] font-medium hover:cursor-pointer"
         >
           Clear filters

@@ -1,5 +1,5 @@
 
-import Vans from "./components/Vans";
+import Vans, {loaderAllVans} from "./components/Vans";
 import "../server"; // make sure this runs before <App />
 import {
   createBrowserRouter,
@@ -25,7 +25,7 @@ function App() {
     createRoutesFromElements(
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
-        <Route path="vans" element={<Vans />} />
+        <Route path="vans" element={<Vans />} loader={loaderAllVans}/>
         <Route path="about" element={<About />} />
         <Route path="vans/:id" element={<VanDetail />} />
 
