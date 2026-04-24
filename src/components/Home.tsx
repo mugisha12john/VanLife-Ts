@@ -22,9 +22,6 @@ export default function Home() {
           Find your van
         </Link>
       </div>
-      <div className=" bg-[#252525] max-w-[90vw] ml-20 flex justify-center p-2 mb-5">
-        <p className="text-[#AAAAAA] ">Ⓒ 2022 #VANLIFE</p>
-      </div>
     </>
   );
 }
