@@ -1,14 +1,8 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import type { Vans } from "../../server";
+import { useLoaderData } from "react-router-dom";
+
 export default function VanDetail() {
-  const params = useParams();
-  const [van, setVans] = useState<Vans>();
-  useEffect(() => {
-    fetch(`/api/vans/${params.id}`)
-      .then((res) => res.json())
-      .then((data) => setVans(data));
-  }, [params.id]);
+
+  const van = useLoaderData();
 
   return (
     <div className="van-detail-container flex justify-center items-center flex-col ml-[30%] mt-10">
@@ -24,7 +18,9 @@ export default function VanDetail() {
             /day
           </p>
           <p className=" font-400 text-lg w-125">{van.vans.description}</p>
-          <button className="bg-[#FF8C38] text-white font-bold text-lg w-125 mt-4 p-2 text-center rounded-2xl">Rent this van</button>
+          <button className="bg-[#FF8C38] text-white font-bold text-lg w-125 mt-4 p-2 text-center rounded-2xl">
+            Rent this van
+          </button>
         </div>
       ) : (
         <h2>Loading...</h2>
