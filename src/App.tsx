@@ -1,4 +1,4 @@
-import Header from "./components/Header";
+
 import Vans from "./components/Vans";
 import "../server"; // make sure this runs before <App />
 import {
@@ -19,11 +19,12 @@ import HostVanDetail from "./components/host/HostVanDetail";
 import HostVanInfo from "./components/host/HostVanInfo";
 import HostVanPhoto from "./components/host/HostVanPhoto";
 import HostVanPricing from "./components/host/HostVanPricing";
+import Layout from "./components/Layout";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
-      <Route path="/" element={<Header />}>
-        <Route path="home" element={<Home />} />
+      <Route path="/" element={<Layout />}>
+        <Route index element={<Home />} />
         <Route path="vans" element={<Vans />} />
         <Route path="about" element={<About />} />
         <Route path="vans/:id" element={<VanDetail />} />
