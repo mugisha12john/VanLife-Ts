@@ -20,7 +20,7 @@ import HostVanPhoto from "./components/host/HostVanPhoto";
 import HostVanPricing from "./components/host/HostVanPricing";
 import Layout from "./components/Layout";
 import Error from "./components/Error";
-import { vanDetailLoader, getAllVans } from "./components/api/handleApi";
+import { vanDetailLoader, getAllVans,hostVansLoader } from "./components/api/handleApi";
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
@@ -38,7 +38,7 @@ function App() {
           <Route index element={<Dashboard />} />
           <Route path="income" element={<Income />} />
           <Route path="review" element={<Review />} />
-          <Route path="van" element={<HostVan />} />
+          <Route path="van" element={<HostVan />} loader={hostVansLoader}/>
           <Route path="van/:id" element={<HostVanDetail />}>
             <Route index element={<HostVanInfo />} />
             <Route path="photo" element={<HostVanPhoto />} />
