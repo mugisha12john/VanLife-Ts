@@ -6,7 +6,7 @@ import transaction from "../../assets/image/transaction.png";
 export default function Income() {
   return (
     <div className="flex justify-center flex-col items-center mt-10">
-      <div className="w-137">
+      <div className="w-full max-w-2xl px-4 mx-auto mt-10">
         <h1 className="text-4xl font-bold m-4">Income</h1>
         <div className="text-lg m-4 flex justify-between">
           <p>

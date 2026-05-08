@@ -16,7 +16,7 @@ export default function HostVanInfo() {
       <h4>
         <b>Category:</b> {van[0].type}
       </h4>
-      <h4 className="max-w-80">
+      <h4 className="w-full max-w-lg mt-2">
         <b>Description: </b>Description: {van[0].description}
       </h4>
       <h4>

@@ -3,18 +3,18 @@ import type { VansData } from "../../../server";
 
 export default function HostVansList({ vans }: { vans: VansData["vans"] }) {
   return (
-    <div className="w-full">
+    <div className="w-full space-y-4">
       {vans.map((item) => {
         return (
           <Link
             key={item.id}
             to={`/host/van/${item.id}`}
-            className="flex gap-10 mt-3 bg-white p-4 rounded-xl items-center"
+            className="flex flex-col sm:flex-row gap-6 sm:gap-10 mt-4 bg-white p-4 sm:p-6 rounded-2xl items-center shadow-sm w-full"
           >
             <img
               src={item.imageUrl}
               alt={item.name}
-              className="w-25 rounded-xl"
+              className="w-[100px] h-[100px] object-cover rounded-xl shrink-0"
             />
             <div>
               <p className="font-bold">{item.name}</p>

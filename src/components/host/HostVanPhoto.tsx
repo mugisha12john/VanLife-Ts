@@ -10,7 +10,7 @@ export default function HostVanPhoto() {
       <img
         src={van[0].imageUrl || ""}
         alt={van[0].name}
-        className="w-40 mt-4 rounded-2xl"
+        className="w-full max-w-[200px] mt-4 rounded-2xl object-cover"
       />
     </div>
   );

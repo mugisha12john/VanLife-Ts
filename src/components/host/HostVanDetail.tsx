@@ -9,7 +9,7 @@ export default function HostVanDetail() {
     color: "#161616",
   };
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-start sm:items-center w-full max-w-4xl mx-auto px-4 mt-6 overflow-hidden">
       <Link to=".." relative="path" className="font-medium  underline">
         ← Back to all vans
       </Link>
@@ -17,11 +17,11 @@ export default function HostVanDetail() {
       <div>
         {van.vans.map((item) => {
           return (
-            <div key={item.id} className="flex gap-10 mt-3">
+            <div key={item.id} className="flex flex-col sm:flex-row gap-6 sm:gap-10 mt-6 sm:items-center">
               <img
                 src={item.imageUrl}
                 alt={item.name}
-                className="w-40 rounded-xl"
+                className="w-full max-w-sm sm:w-40 rounded-xl object-cover shrink-0"
               />
               <div>
                 <button

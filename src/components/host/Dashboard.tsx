@@ -6,8 +6,8 @@ export default function Dashboard() {
   const van: VansData = useLoaderData();
 
   return (
-    <div className="flex justify-center flex-col items-center mt-10">
-      <div className="bg-[#FFEAD0]  w-137">
+    <div className="flex flex-col items-center mx-auto mt-10 px-4 w-full max-w-4xl">
+      <div className="bg-[#FFEAD0] w-full rounded-2xl shadow-sm overflow-hidden">
         <h1 className="text-4xl font-bold m-4">Welcome!</h1>
         <div className="text-lg m-4 flex justify-between">
           <p>
@@ -26,7 +26,7 @@ export default function Dashboard() {
         </div>
       </div>
 
-      <div className="w-137 mt-10">
+      <div className="w-full mt-10 mb-20">
         <div className="flex justify-between">
           <h1 className="font-bold text-2xl">Your listed vans</h1>
           <button className="text-lg">view all</button>

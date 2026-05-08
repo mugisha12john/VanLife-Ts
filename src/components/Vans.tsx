@@ -19,10 +19,10 @@ export default function Vans() {
       >
         <img
           src={van.imageUrl}
-          className="max-w-2/3 rounded-xl"
+          className="w-full max-w-[400px] rounded-xl aspect-square object-cover"
           alt={`Image of ${van.name}`}
         />
-        <div className="flex font-semibold text-xl justify-between max-w-60 mt-2">
+        <div className="flex font-semibold text-lg md:text-xl justify-between w-full max-w-[400px] mt-4 mb-2">
           <p>{van.name}</p>
           <p>
             ${van.price}
@@ -55,7 +55,7 @@ export default function Vans() {
     });
   }
   return (
-    <div className="van-list-container  p-20">
+    <div className="van-list-container px-6 py-10 md:p-20 max-w-7xl mx-auto">
       <h1 className="font-bold text-3xl">Explore our van options</h1>
       <div className="flex gap-5 mt-10">
         <button
@@ -83,7 +83,7 @@ export default function Vans() {
           Clear filters
         </button>
       </div>
-      <div className="van-list grid grid-cols-2  gap-20 justify-items-center  mt-20">
+      <div className="van-list grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 justify-items-center mt-10 w-full">
         {vanElements}
       </div>
     </div>
