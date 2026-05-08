@@ -1,3 +1,5 @@
+import type { LoaderFunctionArgs } from "react-router-dom";
+
 interface datas {
   vans: {
     id: string;
@@ -24,7 +26,7 @@ export async function getAllVans(): Promise<datas> {
 
 
 
-export async function vanDetailLoader({ params }: { params: { id: string } }):Promise<datas> {
+export async function vanDetailLoader({ params }: LoaderFunctionArgs):Promise<datas> {
   const res = await fetch(`/api/vans/${params.id}`);
   if (!res.ok) {
     throw new Response("Failed to load van detail", { status: res.status });
@@ -40,7 +42,7 @@ export async function hostVansLoader():Promise<datas> {
   return res.json();
 }
 
-export async function hostVansDetailLoader({ params }: { params: { id: string } }):Promise<datas> {
+export async function hostVansDetailLoader({ params }: LoaderFunctionArgs):Promise<datas> {
   const res = await fetch(`/api/host/vans/${params.id}`);
   if (!res.ok) {
     throw new Response("Failed to load host vans Detail", { status: res.status });

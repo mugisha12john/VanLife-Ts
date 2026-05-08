@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 export default function UserProfile() {
   const userId = 2;
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<any>(null);
   const [count, setCount] = useState(0);
 
   const fetchUser = async () => {
