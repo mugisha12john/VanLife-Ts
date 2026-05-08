@@ -14,7 +14,7 @@ export default function HostVansList({ vans }: { vans: VansData["vans"] }) {
             <img
               src={item.imageUrl}
               alt={item.name}
-              className="w-[100px] h-[100px] object-cover rounded-xl shrink-0"
+              className="w-25 h-25 object-cover rounded-xl shrink-0"
             />
             <div>
               <p className="font-bold">{item.name}</p>
