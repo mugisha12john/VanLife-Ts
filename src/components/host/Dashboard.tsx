@@ -1,6 +1,10 @@
-import HostVan from "./HostVan";
+import HostVansList from "./HostVansList";
+import { useLoaderData } from "react-router-dom";
+import type { VansData } from "../../../server";
 
 export default function Dashboard() {
+  const van: VansData = useLoaderData();
+
   return (
     <div>
       <div className="bg-[#FFEAD0]  w-137">
@@ -27,7 +31,7 @@ export default function Dashboard() {
           <h1 className="font-bold text-2xl">Your listed vans</h1>
           <button className="text-lg">view all</button>
         </div>
-        <HostVan/>
+        <HostVansList vans={van.vans.slice(0, 3)} />
       </div>
     </div>
   );
