@@ -6,7 +6,7 @@ export default function Dashboard() {
   const van: VansData = useLoaderData();
 
   return (
-    <div>
+    <div className="flex justify-center flex-col items-center mt-10">
       <div className="bg-[#FFEAD0]  w-137">
         <h1 className="text-4xl font-bold m-4">Welcome!</h1>
         <div className="text-lg m-4 flex justify-between">
